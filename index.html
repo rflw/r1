@@ -18,12 +18,12 @@
     liczba.value = x;
 
     buttonPlus.addEventListener("click", function() {
-      liczba.value = x++;
+      liczba.value = ++x;
     });
 
     buttonMinus.addEventListener("click", function() {
       if (x > 0) {
-        liczba.value = x--;
+        liczba.value = --x;
       }
     });
 
