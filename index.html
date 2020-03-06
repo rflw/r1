@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Learn js</title>
+</head>
+<body>
+  <input type="button" value="-" id="buttonMinus" class="buttonMinus2">
+  <input type="text" value="0" id="number">
+  <input type="button" value="+" id="buttonPlus" class="buttonPlus2">
+
+  <script>
+    var buttonPlus = document.getElementById("buttonPlus");
+    var butonMinus = document.getElementById("butonMinus");
+    var liczba = document.getElementById("number");
+    var x = 1;
+    liczba.value = x;
+
+    buttonPlus.addEventListener("click", function() {
+      liczba.value = x++;
+    });
+
+    buttonMinus.addEventListener("click", function() {
+      if (x > 0) {
+        liczba.value = x--;
+      }
+    });
+
+
+    // Dostęp do elementu po nazwie klasy 'buttonMinus2'
+    var buttonMinus2 = document.getElementsByClassName('buttonMinus2');
+    console.log('test:', buttonMinus2); // zwraca HTMLCollection
+    buttonMinus2 = buttonMinus2[0]; // bierzemy pierwszy element z obiektu HTMLCollection
+    buttonMinus2.addEventListener('click', function() {console.log('klik :: buttonMinus2')})
+
+    // dodaj własną funkcję dla przycisku buttonPlus po klasie buttonPlus2
+    
+  </script>
+</body>
+</html>
+
