@@ -1,0 +1,42 @@
+czy to jest zgodne z BEM? i czy dobrze rozumiem założenia BEM ;)
+
+<div class="pinfo">
+  <div class="pinfo__text">
+    <div class="pinfo__text--title">Poznaj dobrze
+      <p class="title">nasz<span class="title--color"> sklep internetowy</span></p>
+    </div>
+    <div class="pinfo__text--desc">
+      Lorem ipsum dolor sit amet enim. Etiam ullamcorper.
+    </div>
+  </div>
+  <div class="pinfo__image">
+    <a href="#" class="pinfo__image--link">
+      <img class="pinfo__image--img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRt8er0CkAlxGq0sukGMOvgIv0Don6fMuNndyEtKL7hDXhZ9xSR">
+    </a>
+  </div>
+</div>
+
+
+czy css do tego powinien wyglądać tak jak poniżej, czy lepiej zagnieżdżać?
+
+.pinfo__text--title {
+  font-size: 38px; 
+  font-weight: bold; 
+  margin-bottom:20px;
+}
+.pinfo__text--title .title {
+  font-size: 28px;
+}
+.pinfo__text--title .title--color {
+  color:#cf142b;
+}
+.pinfo__text--desc {
+  color:#858585; 
+  line-height: 1.8;
+}
+.pinfo__image {
+  margin-top: 20px;
+}
+.pinfo__image--img {
+  display:block;
+}
