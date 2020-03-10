@@ -6,28 +6,45 @@
   <title>Learn js</title>
 </head>
 <body>
-  <input type="button" value="-" class="buttonMinus">
-  <input type="text" value="0" class="number">
-  <input type="button" value="+" class="buttonPlus">
+  <div></div>
 
   <script>
-    var number = document.getElementsByClassName('number');
-    var buttonPlus = document.getElementsByClassName('buttonPlus');
-    var buttonMinus = document.getElementsByClassName('buttonMinus');
+    var btnMinus = document.createElement("input");
+    btnMinus.classList.add('btnMinus');
+    btnMinus.setAttribute("type", "button");
+    btnMinus.setAttribute("value", "-");
 
-    number = number[0];
+    var btnPlus = document.createElement("input");
+    btnPlus.classList.add('btnPlus');
+    btnPlus.setAttribute("type", "button");
+    btnPlus.setAttribute("value", "+");
+
+    var number = document.createElement("input");
+    number.classList.add('number');
+    number.setAttribute("type", "text");
+    number.setAttribute("value", "0");
+
+    var div = document.querySelector('div');
+    div.appendChild(btnMinus);
+    div.appendChild(number);
+    div.appendChild(btnPlus);
+
     x = 1;
     number.value = x;
 
-    buttonPlus = buttonPlus[0];
-    buttonPlus.addEventListener('click', function(){ 
-      number.value = ++x;
+    function spinner(value, operation) {
+      if ( operation == "+")
+        number.value = ++x;
+      else if ( operation == "-" && x > 0)
+        number.value = --x;
+    };
+
+    btnPlus.addEventListener("click", function() {
+     spinner(x,"+");
     });
 
-    buttonMinus = buttonMinus[0];
-    buttonMinus.addEventListener('click', function(){ 
-      if ( x > 0)
-      number.value = --x;
+    btnMinus.addEventListener("click", function() {
+     spinner(x,"-");
     });
     
   </script>
