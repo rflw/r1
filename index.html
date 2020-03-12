@@ -33,10 +33,11 @@
     number.value = x;
 
     function spinner(value, operation) {
-      if ( operation == "+")
+      if ( operation == "+") {
         number.value = ++x;
-      else if ( operation == "-" && x > 0)
+      } else if ( operation == "-" && x > 0) {
         number.value = --x;
+      }
     };
 
     btnPlus.addEventListener("click", function() {
