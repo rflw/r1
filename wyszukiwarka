@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Learn js</title>
+</head>
+<body>
+
+  <div class="tresc">lorem ipsum szukaj</div>
+  <input type="text" class="wyszukiwarka" value="">
+  <input type="button" id="button" value="szukaj">
+  <div id="info"></div>
+
+  <script>
+  
+  var button = document.getElementById("button");
+  var info = document.getElementById("info");
+
+  function searchText() {
+    var tresc = document.getElementsByClassName('tresc');
+    tresc = tresc[0].innerHTML;
+    var wyszukiwarka = document.getElementsByClassName('wyszukiwarka');
+    wyszukiwarka = wyszukiwarka[0].value;
+
+    if ( tresc.includes(wyszukiwarka) ) {
+      info.innerHTML = "true";
+    }
+    else {
+      info.innerHTML = "false";
+    }
+  };
+
+  button.addEventListener("click", function(){
+    searchText();
+  });
+  
+  </script>
+</body>
+</html>
