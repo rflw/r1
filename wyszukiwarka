@@ -17,23 +17,21 @@
   var button = document.getElementById("button");
   var info = document.getElementById("info");
 
-  function searchText() {
-    var tresc = document.getElementsByClassName('tresc');
-    tresc = tresc[0].innerHTML;
-    var wyszukiwarka = document.getElementsByClassName('wyszukiwarka');
-    wyszukiwarka = wyszukiwarka[0].value;
+  var searchText = function() {
+    var text = document.getElementsByClassName('tresc')[0].innerHTML;
+    var textToSearch = document.getElementsByClassName('wyszukiwarka')[0].value;
+    var found = text.includes(textToSearch);
 
-    if ( tresc.includes(wyszukiwarka) ) {
-      info.innerHTML = "true";
-    }
-    else {
-      info.innerHTML = "false";
+     if ( found ) {
+    info.innerHTML = "true";
+    } else if (textToSearch.length = 0 ){
+        alert("input jest pusty");
+    } else {
+        info.innerHTML = "false";
     }
   };
 
-  button.addEventListener("click", function(){
-    searchText();
-  });
+  button.addEventListener("click", searchText);
   
   </script>
 </body>
