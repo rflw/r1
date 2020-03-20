@@ -22,10 +22,10 @@
     var textToSearch = document.getElementsByClassName('wyszukiwarka')[0].value;
     var found = text.includes(textToSearch);
 
-     if ( found ) {
-    info.innerHTML = "true";
-    } else if (textToSearch.length = 0 ){
-        alert("input jest pusty");
+    if ( textToSearch.length === 0) {
+    alert("pusty input");
+    } else if (found){
+        info.innerHTML = "true";
     } else {
         info.innerHTML = "false";
     }
