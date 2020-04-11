@@ -9,12 +9,12 @@
 
   <div class="tresc">lorem ipsum szukaj</div>
   <input type="text" class="wyszukiwarka" value="">
-  <input type="button" id="button" value="szukaj">
+  <input type="button" id="searchBtn" value="szukaj">
   <div id="info"></div>
 
   <script>
   
-  var button = document.getElementById('button');
+  var searchBtn = document.getElementById('searchBtn');
 
   var searchText = function() {
 
@@ -22,14 +22,40 @@
     var text = document.getElementsByClassName('tresc')[0].innerHTML;
     var info = document.getElementById('info');
 
-    for (var i = 0; i <= textToSearch.length; i++) {
+    var tmpInfo = '';
+
+    // pierwszym elementem jest 0
+    // więc jeśli długość textToSearch.length wynosi 10
+    // to jeśli i będzie 10, to textToSearch[10] będzie 'undefined'
+    // dlatego powinno być i <, zamiast i <=
+    for (var i = 0; i < textToSearch.length; i++) {
+
+      console.log(
+        'przebieg pętli:', i,
+        'znaki do porównania:', text[i], textToSearch[i],
+        'porównanie', text[i] === textToSearch[i],
+      )
+
       if (text[i] === textToSearch[i]) {
-        info.innerHTML += textToSearch[i];
-      } 
+        console.log(i, 'OK')
+        // znaki nie powinny być wstawiane na bieżąco do elementu poprzez
+        // element.innerHTML +=
+        // szukana fraza może być niezgodna w 100% ze znalezioną
+        tmpInfo += textToSearch[i]
+      }
     };
+
+    if (tmpInfo === textToSearch) {
+      // szukany tekst zgadza się ze znalezionym
+      info.innerHTML = tmpInfo;
+    } else {
+      // znaleziono pasujące znaki ale brak 100% dopasowania
+      info.innerHTML = "Brak dopasowań. Znaleziono: " + tmpInfo;
+    }
+
   };
 
-  button.addEventListener('click',searchText);
+  searchBtn.addEventListener('click', searchText);
   
   </script>
 </body>
